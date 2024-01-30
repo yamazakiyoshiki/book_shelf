@@ -1,21 +1,22 @@
 {
-  "name": "08_bookshelf_backend",
+  "name": "book_shelf",
   "version": "1.0.0",
-  "description": "",
+  "description": "本セクションで、書きながら学びたい場合にはこのフォルダ（08_bookshelf_backend）を 別名にして、新しくフォルダを作成してその中に記述してください。",
   "main": "index.js",
   "scripts": {
-    "dev:api": "nodemon server/app.mjs"
+    "dev:api": "npx nodemon app.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.4.1",
     "express": "^4.18.2",
-    "express-validator": "^6.14.2",
-    "mongoose": "^6.7.0"
+    "express-validator": "^7.0.1",
+    "mongoose": "^8.1.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^3.0.3"
   }
 }
