@@ -5,7 +5,7 @@ http://localhost:8080/api/books
 http://localhost:8080/api/books/6334634881d8ae4ba04fbc8e
 ###
 
-DELETE http://localhost:8080/api/books/6334634881d8ae4ba04fbc8e
+DELETE http://localhost:8080/api/books/633471d481d8ae4ba04fbca9
 ###
 
 POST http://localhost:8080/api/books
@@ -24,5 +24,5 @@ PATCH http://localhost:8080/api/books/65b8f2f8b52945f7ba7e41d9
 Content-Type: application/json
 
 {
-    "rating": 6
+    "rating": 4
 }

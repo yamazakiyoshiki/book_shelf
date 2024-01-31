@@ -1,6 +1,19 @@
 import { validationResult } from "express-validator";
 import Book from "../models/books.mjs";
 
+async function getAllBooks (req, res) {
+  const books = await Book.find().sort({updatedAt : -1});
+  res.json(books);
+}
+
+async function getBookById (req, res) {
+  const _id = req.params.id;
+  const book = await Book.findById(_id);
+
+  if(book === null) return res.status(404).json({msg: 'Page Not Found'});
+  res.json(book);
+}
+
 async function registBook (req, res) {
   const errors = validationResult(req);
 
@@ -27,6 +40,8 @@ async function updatedBook (req, res) {
   const {rating} = req.body;
   const _id = req.params.id;
   const book = await Book.findById(_id);
+  if(book === null) return res.status(404).json({msg: 'Page Not Found'});
+
   if(title !== undefined) book.title = title;
   if(description !== undefined) book.description = description;
   if(comment !== undefined) book.comment = comment;
@@ -35,4 +50,14 @@ async function updatedBook (req, res) {
   res.json(book);
 }
 
-export {registBook, updatedBook};
+async function deleteBook (req, res) {
+  const _id = req.params.id;
+  const {deletedCount} = await Book.deleteOne({_id});
+
+  if(deletedCount === 0) return res.status(404).json({msg: 'Target Book Not Found'});
+
+  res.json({"msg":"Delete succeeded."});
+  }
+
+
+export {getAllBooks, getBookById, registBook, updatedBook, deleteBook};
