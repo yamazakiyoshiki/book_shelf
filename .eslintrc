@@ -1,0 +1,6 @@
+{
+    "rules": {
+      "react/jsx-users-react": 0,
+      "react/react-in-jsx-scope": 0
+    }
+}
